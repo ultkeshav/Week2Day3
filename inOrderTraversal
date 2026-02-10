@@ -1,0 +1,20 @@
+class Solution {
+  public:
+    vector<int> inOrder(Node* root) {
+        
+        vector<int> result;
+        
+        inOrderUtil(root,result);
+        
+        return result;
+    }
+    
+    void inOrderUtil(Node *root,vector<int>&result){
+        
+        if(root==NULL) return;
+        
+        inOrderUtil(root->left,result);
+        result.push_back(root->data);
+        inOrderUtil(root->right,result);
+    }
+};
