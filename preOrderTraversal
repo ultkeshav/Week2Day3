@@ -1,0 +1,22 @@
+class Solution {
+  public:
+  
+    vector<int> preOrder(Node* root) {
+       
+       vector<int> result;
+       
+       preOrderUtil(root,result);
+       
+       return result;
+        
+    }
+    
+    void preOrderUtil(Node*root,vector<int>&result){
+        
+        if(!root) return;
+        
+        result.push_back(root->data);
+        preOrderUtil(root->left,result);
+        preOrderUtil(root->right,result);
+    }
+};
