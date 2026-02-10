@@ -1,0 +1,25 @@
+class Solution {
+  public:
+    int leafSum(Node* root) {
+      
+      int sum = 0;
+      
+      leafSumUtil(root,sum);
+      
+      return sum;
+        
+    }
+    
+    void leafSumUtil(Node*root,int&sum){
+        
+        if(!root) return;
+        
+        leafSumUtil(root->left,sum);
+        leafSumUtil(root->right,sum);
+        
+        if(!root->left && !root->right){
+            
+            sum = sum  + root->data;
+        }
+    }
+};
